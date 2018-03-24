@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # http://projecteuler.net/problem=2
 
@@ -12,16 +12,23 @@
 # find the sum of the even-valued terms.
 
 
-def fibonacci(max):
+def fibonacci():
     a, b = 0, 1
     while True:
-        c = a + b
-        a, b = b, c
-        if c <= max:
-            if not c % 2:
-                yield c
+        yield a
+        a, b = b, a + b
+
+
+def limit(iterable, n):
+    for i in iterable:
+        if i <= n:
+            yield i
         else:
             raise StopIteration
 
-num = fibonacci(4e6)
-print sum(num)
+
+def even(iterable):
+    return (i for i in iterable if i % 2 == 0)
+
+
+print(sum(even(limit(fibonacci(), 4e6))))

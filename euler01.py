@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # http://projecteuler.net/problem=1
 
@@ -8,6 +8,5 @@
 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-
-a = (x for x in xrange(1000) if not x % 3 or not x % 5)
-print sum(a)
+a = (x for x in range(1000) if not x % 3 or not x % 5)
+print(sum(a))

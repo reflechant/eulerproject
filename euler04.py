@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # http://projecteuler.net/problem=4
 
@@ -9,13 +9,13 @@
 # Find the largest palindrome made from the product
 # of two 3-digit numbers.
 
-def palindrome():
-    palindrome = 0
-    for x in xrange(100,1000):
-        for y in xrange(100,1000):
-            prod = x * y
-            if str(prod) == str(prod)[::-1] and prod > palindrome:
-                palindrome = prod
-    return palindrome
 
-print palindrome()
+def palindromes():
+    for x in range(100, 1000):
+        for y in range(100, 1000):
+            prod = x * y
+            if str(prod) == str(prod)[::-1]:
+                yield prod
+
+
+print(max(palindromes()))
